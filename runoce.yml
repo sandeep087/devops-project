@@ -1,0 +1,11 @@
+- hosts: sandy
+  user: ubuntu
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: run the uptime
+      raw: /usr/bin/uptime >> /home/ubuntu/test/uptime.log
+    - name: list the var direcotory
+      raw: ls -al /var >> /home/ubuntu/test/dir.list
+      run_once: true

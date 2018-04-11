@@ -1,0 +1,10 @@
+- hosts: sandy
+  user: ubuntu
+  sudo: yes
+  connection: ssh
+  tasks:
+  - name: run a remote ping on aplication server
+    command: ping -c 4 172.31.83.220 > /home/ubuntu/test/ping.out
+    delegate_to: 127.0.0.1
+  - name: install a package
+    apt: pkg=apache2 state=latest

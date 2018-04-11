@@ -1,0 +1,19 @@
+- hosts: 'sandy'
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: install tree
+      apt: pkg=treee state=latest
+      ignore_errors: yes
+    - name: install apache2
+      apt: pkg=apache2 state=latest
+      notify:
+        - stateservice
+  handlers:
+  - name: stateservice
+    service:
+      name: apache2
+      state: restarted

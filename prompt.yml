@@ -1,0 +1,13 @@
+- hosts: sandy
+  user: ubuntu
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  vars_prompt:
+    - name: installpackage
+      prompt: which package you need?
+      default: telnet
+      private: no
+  tasks:
+    - name: mention package
+      apt: pkg={{ installpackage }} state=latest

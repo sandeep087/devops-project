@@ -1,0 +1,8 @@
+- hosts: sandy
+  user: ubuntu
+  sudo: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - debug: msg="lookup the SuperHero for BRUCE WAYNE {{ lookup('csvfile','Bruce Wayne file=heros.csv delimiter=, col=1, default=NOMATCH') }}"
+

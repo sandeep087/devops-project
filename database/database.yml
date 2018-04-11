@@ -1,0 +1,43 @@
+- hosts: sandy
+  user: ubuntu
+  become: yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  vars:
+    dbserver_pkg: mariadb_server
+    dbclient_pkg: mariadb
+    dbserver_fqdn: ec2-35-174-174-148.compute-1.amazonaws.com
+    dbinstalldir: /var/lib
+    dbinstancename: MyDBTest
+    dbdistribution: ubuntu
+    dbversion: 5.5.44
+  tasks:
+  - name: install mariadb
+    apt: pkg=mariadb-server state=latest
+
+  - name: install mariadb client
+    apt: pkg=mariadb-client state=latest
+
+  - name: start the db service
+    service: name=mysql state=started
+  - pause: prompt="please run mysql_secure_installation binary and press ENTER to continue the playbook"
+
+  - name: restart the mariadb
+    service: name=mysql state=restarted
+
+  - name: copy the remote rdatabase
+    copy: src=files/mysql.sql dest=/var/lib/mysql.sql owner=root group=root mode=755
+
+  - name: create the remote database
+    shell: mysql -u root -ppassword123 create MyDBTest
+
+  - name: import database backup
+    shell: mysql -u root -ppassword123 MyDBtest < /var/lib/mysqlbkup.sql
+    register: result
+  - debug: var=result
+
+  - name: run a quick sql command to check everything is created and working
+    shell: mysql -u root -ppassword123 -e 'SHOW DATABASES;'
+    register: mysqlresult
+  - debug: var=mysqlresult
