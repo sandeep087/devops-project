@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: sandeep
   user: ubuntu
   become_method: yes
   sudo: yes
