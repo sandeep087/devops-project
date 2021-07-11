@@ -1,5 +1,0 @@
-- name: install telnet
-  apt: pkg=telnet state=latest
-- name: install tree
-  apt: pkg=tree state=latest
-

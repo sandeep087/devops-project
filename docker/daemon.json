@@ -1,4 +1,0 @@
-{
-  "exec-opts": ["native.cgroupdrive=systemd"]
-}
-

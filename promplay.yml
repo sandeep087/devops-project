@@ -1,8 +1,0 @@
-- hosts: '{{ hosts }}'
-  user: '{{ user }}'
-  sudo: yes
-  connection: ssh
-  gather_facts: no
-  tasks:
-  - name: install some software
-    apt: pkg={{ pkg }} state=latest

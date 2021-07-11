@@ -1,9 +1,0 @@
-- hosts: sandy
-  user: ubuntu
-  sudo: yes
-  connection: ssh
-  gather_facts: no
-  tasks:
-    - include: packages.yml
-    - name: verify telnet
-      raw: apt list installed | grep telnet > /home/ubuntu/test/pkgs.log
