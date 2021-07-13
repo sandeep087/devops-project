@@ -19,6 +19,11 @@
       <name>maven-pipeline</name>
       <url>http://54.89.30.24:8081/</url>
     </repository>
+	<snapshotRepository>
+         <id>nmaven-pipeline</id>
+         <name>maven-pipeline</name>
+         <url>http://54.89.30.24:8081</url>
+    </snapshotRepository>
   </distributionManagement>	
       <dependencies>
            <dependency>
