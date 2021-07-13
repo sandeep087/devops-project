@@ -17,12 +17,12 @@
     <repository>
       <id>maven-pipeline</id>
       <name>maven-pipeline</name>
-      <url>http://54.89.30.24:8081/</url>
+      <url>http://54.89.30.24:8081/repository/maven-pipeline/</url>
     </repository>
 	<snapshotRepository>
          <id>nmaven-pipeline</id>
          <name>maven-pipeline</name>
-         <url>http://54.89.30.24:8081</url>
+         <url>http://54.89.30.24:8081/repository/maven-pipeline/</url>
     </snapshotRepository>
   </distributionManagement>	
       <dependencies>
