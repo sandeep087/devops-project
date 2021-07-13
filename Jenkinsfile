@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'sandy-docker-slave' }
+    agent { label 'sandy-docker-slave1' }
     stages {
         stage('Checkout') {
             steps {
