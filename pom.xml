@@ -13,7 +13,12 @@
            <maven.compiler.source>1.6</maven.compiler.source>
            <maven.compiler.target>1.6</maven.compiler.target>
      </properties>
-
+	<repositories>
+    		<repository>
+      		<id>maven-pipeline</id>
+      		<url>http://54.89.30.24:8081/repository/maven-pipeline/</url>
+    		</repository>
+  </repositories>
       <dependencies>
            <dependency>
                <groupId>joda-time</groupId>
